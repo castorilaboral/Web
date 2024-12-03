@@ -2,12 +2,14 @@ import { getDictionary } from '@/lib/dictionaries'
 import type { Dictionary } from '@/types/dictionary'
 import React from 'react'
 
-export default async function About({
-  params: { lang },
-}: {
-  params: { lang: string }
-}) {
-  const dict = await getDictionary(lang)
+type PageParams = {
+  params: {
+    lang: string
+  }
+}
+
+export default async function About({ params }: PageParams) {
+  const dict = await getDictionary(params.lang)
 
   return (
     <div className="bg-white">
