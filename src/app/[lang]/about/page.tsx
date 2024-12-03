@@ -3,11 +3,11 @@ import type { Dictionary } from '@/types/dictionary'
 import React from 'react'
 
 export default async function About({
-  params,
+  params: { lang },
 }: {
   params: { lang: string }
 }) {
-  const dict = await getDictionary(params.lang)
+  const dict = await getDictionary(lang)
 
   return (
     <div className="bg-white">
