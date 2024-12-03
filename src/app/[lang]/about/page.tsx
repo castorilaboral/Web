@@ -2,11 +2,16 @@ import { getDictionary } from '@/lib/dictionaries'
 import type { Dictionary } from '@/types/dictionary'
 import React from 'react'
 
+type Props = {
+  params: {
+    lang: string
+  }
+  searchParams?: { [key: string]: string | string[] | undefined }
+}
+
 export default async function About({
   params: { lang },
-}: {
-  params: { lang: string }
-}) {
+}: Props) {
   const dict: Dictionary = await getDictionary(lang)
 
   return (
