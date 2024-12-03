@@ -2,17 +2,12 @@ import { getDictionary } from '@/lib/dictionaries'
 import type { Dictionary } from '@/types/dictionary'
 import React from 'react'
 
-type Props = {
-  params: {
-    lang: string
-  }
-  searchParams?: { [key: string]: string | string[] | undefined }
-}
-
 export default async function About({
-  params: { lang },
-}: Props) {
-  const dict: Dictionary = await getDictionary(lang)
+  params,
+}: {
+  params: { lang: string }
+}) {
+  const dict = await getDictionary(params.lang)
 
   return (
     <div className="bg-white">
