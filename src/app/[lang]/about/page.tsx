@@ -2,13 +2,14 @@ import { getDictionary } from '@/lib/dictionaries'
 import type { Dictionary } from '@/types/dictionary'
 import React from 'react'
 
-type PageParams = {
+type PageProps = {
   params: {
     lang: string
   }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function About({ params }: PageParams) {
+export default async function About({ params }: PageProps) {
   const dict = await getDictionary(params.lang)
 
   return (
